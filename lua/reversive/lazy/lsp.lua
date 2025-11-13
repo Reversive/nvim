@@ -80,7 +80,7 @@ return {
                         settings = {
                             typescript = {
                                 preferences = {
-                                    importModuleSpecifierPreference = "non-relative",
+                                    importModuleSpecifierPreference = "relative",
                                 },
                                 inlayHints = {
                                     includeInlayParameterNameHints = "all",
