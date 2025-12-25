@@ -14,7 +14,11 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
-vim.o.timeout = true   -- Make sure timeout is enabled
-vim.o.timeoutlen = 300 -- Set timeout for mapped key sequences (e.g., 300ms). You can test with 100ms or 500ms.
-vim.o.ttimeout = true  -- Make sure key code timeout is enabled
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+vim.o.ttimeout = true
 vim.o.ttimeoutlen = 50
+
+vim.g.netrw_browse_split = 0
+vim.g.netrw_banner = 0
+vim.g.netrw_winsize = 25

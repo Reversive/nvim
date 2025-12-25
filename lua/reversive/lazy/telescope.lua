@@ -1,15 +1,19 @@
-
 return {
     {
         "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        keys = {
+            { "<leader>pf", function() require('telescope.builtin').find_files() end, desc = "Find files" },
+            { "<C-p>", function() require('telescope.builtin').git_files() end, desc = "Git files" },
+            { "<leader>ps", function()
+                require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
+            end, desc = "Grep string" },
+        },
         dependencies = {
-            "nvim-lua/plenary.nvim"
+            { "nvim-lua/plenary.nvim", lazy = true },
         },
         config = function()
-            local keymap = vim.keymap
-            local builtin = require('telescope.builtin')
             local actions = require('telescope.actions')
-
             require('telescope').setup({
                 defaults = {
                     mappings = {
@@ -24,12 +28,6 @@ return {
                     },
                 },
             })
-
-            keymap.set('n', '<leader>pf', builtin.find_files, {})
-            keymap.set('n', '<C-p>', builtin.git_files, {})
-            keymap.set('n', '<leader>ps', function()
-                builtin.grep_string({ search = vim.fn.input("Grep > ") })
-            end) 
         end,
     },
 }
