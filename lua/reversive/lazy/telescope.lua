@@ -8,13 +8,20 @@ return {
             { "<leader>ps", function()
                 require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") })
             end, desc = "Grep string" },
+            { "<leader>pg", function() require('telescope.builtin').live_grep() end, desc = "Live grep" },
         },
         dependencies = {
-            { "nvim-lua/plenary.nvim", lazy = true },
+            "nvim-lua/plenary.nvim",
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+            },
         },
         config = function()
             local actions = require('telescope.actions')
-            require('telescope').setup({
+            local telescope = require('telescope')
+
+            telescope.setup({
                 defaults = {
                     mappings = {
                         i = {
@@ -28,6 +35,8 @@ return {
                     },
                 },
             })
+
+            telescope.load_extension("fzf")
         end,
     },
 }

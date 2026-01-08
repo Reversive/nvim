@@ -5,7 +5,6 @@ return {
         cmd = { "ConformInfo" },
         opts = {
             formatters_by_ft = {
-                go = { "goimports" },
                 javascript = { "biome" },
                 typescript = { "biome" },
                 javascriptreact = { "biome" },
